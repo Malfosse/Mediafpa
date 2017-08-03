@@ -1,0 +1,7 @@
+Sql : id_exemplaire = code barre
+
+
+Nom ressource payara : 
+
+mediaresource
+
