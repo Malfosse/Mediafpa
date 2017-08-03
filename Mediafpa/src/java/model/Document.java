@@ -66,7 +66,7 @@ public class Document implements Serializable {
 	@JoinColumn(name = "id_editeur", referencedColumnName = "id_editeur")
     @ManyToOne
 	private Editeur idEditeur;
-	@OneToMany(mappedBy = "codebarre")
+	@OneToMany(mappedBy = "idDocument")
 	private List<Exemplaire> exemplaireList;
 
 	public Document() {

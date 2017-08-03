@@ -45,9 +45,9 @@ public class Exemplaire implements Serializable {
 	private String etat;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "idExemplaire")
 	private List<Emprunter> emprunterList;
-	@JoinColumn(name = "codebarre", referencedColumnName = "id_document")
+	@JoinColumn(name = "id_document", referencedColumnName = "id_document")
     @ManyToOne
-	private Document codebarre;
+	private Document idDocument;
 
 	public Exemplaire() {
 	}
@@ -80,12 +80,12 @@ public class Exemplaire implements Serializable {
 		this.emprunterList = emprunterList;
 	}
 
-	public Document getCodebarre() {
-		return codebarre;
+	public Document getIdDocument() {
+		return idDocument;
 	}
 
-	public void setCodebarre(Document codebarre) {
-		this.codebarre = codebarre;
+	public void setIdDocument(Document idDocument) {
+		this.idDocument = idDocument;
 	}
 
 	@Override
