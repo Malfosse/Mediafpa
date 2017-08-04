@@ -1,0 +1,82 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <p:panel>
+        <style>
+            #form{
+            }
+            .ui-panel .ui-panel-content {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+    border: 0 none;
+    padding: 0.5em 1em;
+  
+}
+            #boutAccueil {
+                color: #f4ca64;
+                font-size: 11px;
+                text-align: center;
+            }
+            #haut{
+                margin-bottom: 25px;
+            }
+            #bas{
+                width: 500px;
+                text-align: center;
+            }
+            
+ 
+        </style>
+
+        <h:form id="form">
+            <div id="haut">        <p:button id="boutAccueil" value="Médiathèque de Quetigny" icon="ui-icon-home" href="/faces/index.xhtml" /> 
+        <p:commandButton class="c1" id="boutDeConnexion" value="Deconnexion"  update="form" rendered=""/>
+        
+            <p:button value="Video" />
+            
+            <p:button value="Musique" />
+            <p:button value="Livre" />
+            <p:button value="Infos Pratiques" />
+            <p:button value="Bibliothèque numérique" />
+            <h:link  value="Créer un compte" />
+        <p:commandButton class="c1" id="boutConnexion" value="Connexion"  onclick="PF('dlg3').show();" rendered="true" update="form"/>
+            <h:outputLabel id="outConexUser" value=" Vous êtes Connecté(e)" rendered="false" />  </div>   
+            
+            
+            <div id="bas">        <p:panel id="panel" header="Rechercher un livre dans le Catalogue" style="margin-bottom:10px;">
+        <p:messages id="messages" />
+ 
+        <h:panelGrid columns="4" cellpadding="5">
+            
+            <h:outputLabel for="txt1" value="Catalogue : *" />
+            <p:inputText id="txt1" value="" required="true" label="Text 1">
+            <f:validateLength minimum="2" />
+            </p:inputText>
+            <p:message for="txt1" />
+            <h:outputText value="" />
+            
+        </h:panelGrid>
+            </p:panel></div>   
+
+            
+            
+
+
+        </h:form>
+        
+        <p:dialog header="Login" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="200">
+            
+            <h:outputText value="Connectez vous." style="text-align: center;"/>
+       
+        <h:form>
+        <h4><p:outputLabel id="identifiant"  title="Identifiant" value="Identifiant : "/><span class="bold"> * </span>
+        <p:inputText id="IdUser" value=""/></h4>
+        <h4><p:outputLabel  id="motdepasse"  title="Mot de passe" value="Mot de Passe : "/><span class="bold">* </span>
+        <p:password id="mdpUser" value="" required="true"/></h4>
+        <p:commandButton value="Connexion" id="ajax" update=":form" styleClass="ui-priority-primary" title="Connexion" />
+        </h:form>
+        </p:dialog>     
+    </p:panel>
+</ui:composition>
